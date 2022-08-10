@@ -1,0 +1,21 @@
+.caixa {
+    background-color: rgb(0, 234, 51);
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    transition: 0.3s ease-in-out;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    line-height: 100px;
+}
+
+.caixa.entrado {
+    background-color: rgb(0, 148, 32);
+    transition: 0.3s ease-in-out;
+}
+
+.caixa.clicado {
+    background-color: rgb(0, 53, 11);
+    transition: 0.3s ease-in-out;
+}
