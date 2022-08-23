@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Exemplo de fetch</title>
+	</head>
+	<body>
+		<a href="https://dmitripavlutin.com/javascript-fetch-async-await/">https://dmitripavlutin.com/javascript-fetch-async-await/</a>
+		<div id="result"></div>
+	</body>
+	<script>
+		const apiUrl = 'https://brasilapi.com.br/api/feriados/v1/2022';
+		
+		(async () => 
+		{
+			const response = await fetch(apiUrl);
+			const result = await response.json();
+			//console.log(result);
+			
+			for (let i=0; i<result.length; i++)
+			{
+				let feriado = result[i];
+				console.log(feriado);
+			}
+			
+		})();
+	</script>
+	
+</html>

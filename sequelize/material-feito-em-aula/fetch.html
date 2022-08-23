@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Exemplo Fetch</title>
+    </head>
+    <body>
+        <select id="ano">
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+        </select>
+        <button onclick="buscarFeriados()">Buscar feriados</button>
+        <div id="resultado"></div>
+    </body>
+    <script>
+        async function buscarFeriados()
+        {
+            const ano = document.querySelector('#ano').value;
+            const urlApi = "https://brasilapi.com.br/api/feriados/v1/"+ano;
+
+            const response = await fetch(urlApi);
+            const result = await response.json();
+
+            const tabela = document.createElement('table');
+            tabela.style.border = 'solid 1px black';
+
+            //criar th
+
+            for ( let i = 0; i<result.length; i++)
+            {
+                let feriado = result[i];
+                console.log(feriado);
+                let tr = document.createElement('tr');
+
+                let td1 = document.createElement('td');
+                let td2 = document.createElement('td');
+                let td3 = document.createElement('td');
+
+                td1.innerHTML = feriado.date; //tratar data pra portugues
+                td2.innerHTML = feriado.name;
+                td3.innerHTML = feriado.type;
+                
+                tr.append(td1);
+                tr.append(td2);
+                tr.append(td3);
+
+                tabela.append(tr);
+            }
+
+            document.querySelector("#resultado").innerHTML ="";
+            document.querySelector("#resultado").append(tabela);
+        }
+    </script>
+</html>
