@@ -1,0 +1,16 @@
+Feriados do ano de 2022
+
+<table>
+    <tr>
+        <th>Data</th>
+        <th>Nome</th>
+        <th>Tipo</th>
+    </tr>
+  <% feriados.forEach(function(feriado) { %>
+    <tr>
+        <td><%=feriado.date%></td>
+        <td><%=feriado.name%></td>
+        <td><%=feriado.type%></td>
+    </tr>
+  <% })%>
+</table>
